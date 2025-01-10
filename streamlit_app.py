@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 # Write directly to the app
@@ -10,8 +9,8 @@ st.write(
     """
 )
 
-
-session = get_active_session()
+conection = st.connection("snowflake")
+session = connection.session()
 my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT_NAME'))
 
 #option = st.selectbox('What is your favourite fruit?', ('Banana','Strawberries', 'Peaches'))
