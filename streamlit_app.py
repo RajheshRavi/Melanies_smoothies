@@ -9,6 +9,9 @@ st.write(
     """
 )
 
+name_on_order = st.text_input("Name on Smoothie:")
+st.write('The name on the Smoothie will be:', name_on_order)
+
 conection = st.connection("snowflake")
 session = connection.session()
 my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT_NAME'))
@@ -18,9 +21,6 @@ my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT
 #st.write('You have selected:', option)
 
 #st.dataframe(data = my_dataframe, use_container_width=True)
-
-name_on_order = st.text_input("Name on Smoothie:")
-st.write('The name on the Smoothie will be:', name_on_order)
 
 ingredient_list = st.multiselect("Choose upto 5 ingridents: ", my_dataframe, max_selections=5)
 
