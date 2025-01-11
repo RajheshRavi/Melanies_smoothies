@@ -1,6 +1,7 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col
+import requests
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
@@ -14,6 +15,9 @@ st.write('The name on the Smoothie will be:', name_on_order)
 
 connection = st.connection("snowflake")
 session = connection.session()
+#my_dataframe =
+my_smoothie_fruit = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.write(my_smoothiee_fruit)
 my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT_NAME'))
 
 #option = st.selectbox('What is your favourite fruit?', ('Banana','Strawberries', 'Peaches'))
