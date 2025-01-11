@@ -18,7 +18,7 @@ connection = st.connection("snowflake")
 session = connection.session()
 
 my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT_NAME'), col('SEARCH_ON'))
-pd_df = pd.DataFrame(my_dataframe)
+pd_df = my_dataframe.to_pandas()
 st.dataframe(pd_df)
 st.stop()
 
