@@ -19,8 +19,8 @@ session = connection.session()
 
 my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 pd_df = my_dataframe.to_pandas()
-st.dataframe(pd_df)
-st.stop()
+#st.dataframe(pd_df)
+#st.stop()
 
 #option = st.selectbox('What is your favourite fruit?', ('Banana','Strawberries', 'Peaches'))
 
