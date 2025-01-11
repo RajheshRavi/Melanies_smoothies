@@ -18,7 +18,7 @@ session = connection.session()
 #my_dataframe =
 my_smoothiee_fruit = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 #st.text(my_smoothiee_fruit.json())
-sf_df = st.datafrane(data=my_smoothiee_fruit.json(), use_container_width = True)
+sf_df = st.dataframe(data=my_smoothiee_fruit.json(), use_container_width = True)
 my_dataframe = session.table("smoothies.public.FRUIT_OPTIONS").select(col('FRUIT_NAME'))
 
 #option = st.selectbox('What is your favourite fruit?', ('Banana','Strawberries', 'Peaches'))
